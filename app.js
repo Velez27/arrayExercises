@@ -76,6 +76,42 @@ sameNumbers(arrayOne, arrayTwo);
 // Escriba un algoritmo que identifique si con 3 longitudes: a, b y c (siempre enteras) se puede construir un triángulo. 
 // Tip: En un triángulo la suma de 2 lados siempre es mayor que el 3º. Las longitudes no pueden ser negativas.
 
+function canBuildATriangle(){
+    let longitudeA = 5;
+    let longitudeB = 8;
+    let longitudeC = 3;
+    
+    if(((longitudeA + longitudeB) > longitudeC) && ((longitudeA + longitudeC) > longitudeB) && ((longitudeB + longitudeC) > longitudeA)){
+        console.log(`${longitudeA}, ${longitudeB}, ${longitudeC} pueden construir un Triangulo`);
+    }else{
+        console.log(`${longitudeA}, ${longitudeB}, ${longitudeC} NO pueden construir un Triangulo`);
+    }
+    
+}
+
+canBuildATriangle();
+
 // Problema #5
 // Escriba un algoritmo que lea los números de un arreglo y determine cuáles son los 2 números más grandes del arreglo. 
 // Ejemplo: Para {1, 5, 9, 2, 15, 9, 10, 12} el resultado sería: 15 y 12.
+
+function TwoMaxNumber(){
+    let arrFinal = [1, 5, 9, 2, 15, 9, 10, 12];
+    let size = arrFinal.length;
+    let aux = 0;
+    for(let i = 0; i < size; i++){
+        let indMin = i;
+        for(let j = i + 1; j < size; j++){
+            if(arrFinal[indMin] > arrFinal[j]){
+                indMin = j;
+            }
+        }
+        aux = arrFinal[i];
+        arrFinal[i] = arrFinal[indMin];
+        arrFinal[indMin] = aux;
+    }
+    console.log(`El resultado es: ${arrFinal[size - 1]} y ${arrFinal[size - 2]}`);
+
+}
+
+TwoMaxNumber();
